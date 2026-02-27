@@ -11,14 +11,14 @@
 
 ### Windows
 ```
-git clone https://github.com/ChrisRoland/ai-character-engine.git
+git clone https://github.com/rookiemann/ai-character-engine.git
 cd ai-character-engine
 setup.bat
 ```
 
 ### Linux / Mac
 ```
-git clone https://github.com/ChrisRoland/ai-character-engine.git
+git clone https://github.com/rookiemann/ai-character-engine.git
 cd ai-character-engine
 chmod +x setup.sh && ./setup.sh
 ```
@@ -97,7 +97,7 @@ chmod +x setup.sh && ./setup.sh
 Use the setup script (recommended) or install manually:
 
 ```bash
-git clone https://github.com/ChrisRoland/ai-character-engine.git
+git clone https://github.com/rookiemann/ai-character-engine.git
 cd ai-character-engine
 npm install
 npm run build
