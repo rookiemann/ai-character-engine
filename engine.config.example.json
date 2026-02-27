@@ -1,0 +1,117 @@
+{
+  "_comment": [
+    "AI Character Engine — Configuration",
+    "",
+    "Copy this file to engine.config.json and edit to match your setup.",
+    "",
+    "RECOMMENDED: vLLM (highest throughput, 11+ decisions/sec)",
+    "  Install: pip install vllm",
+    "  Start:   python -m vllm.entrypoints.openai.api_server --model <path-or-hf-id>",
+    "  The default config below is ready for vLLM on port 8100.",
+    "",
+    "ALTERNATIVE: Ollama (easiest setup, 2 minutes)",
+    "  Install from https://ollama.com, then: ollama pull qwen2.5:7b",
+    "  See _comment_ollama_alternative below for the config swap.",
+    "",
+    "OTHER PROVIDERS:",
+    "  lmstudio — Load a model in the LM Studio GUI, start the local server.",
+    "  openrouter / openai / anthropic — Set apiKey below.",
+    "",
+    "GPU PINNING:",
+    "  Use gpuId to document which GPU each provider should run on.",
+    "  For vLLM, pass --gpu-id <N> when starting the server.",
+    "  For Ollama, set CUDA_VISIBLE_DEVICES=<N> in the environment.",
+    "  For LM Studio, select the GPU in the GUI settings.",
+    "",
+    "COST WARNING:",
+    "  This engine makes hundreds of LLM calls per minute when characters are active.",
+    "  Cloud providers (openrouter, openai, anthropic) will incur significant costs.",
+    "  Local providers (vllm, ollama, lmstudio) are strongly recommended."
+  ],
+
+  "database": {
+    "path": "./data/engine.db"
+  },
+
+  "inference": {
+    "type": "vllm",
+    "_comment_type": "One of: vllm, ollama, lmstudio, openrouter, openai, anthropic",
+    "baseUrl": "http://127.0.0.1:8100/v1",
+    "models": {
+      "heavy": "default",
+      "mid": "default",
+      "light": "default"
+    },
+    "maxConcurrency": 64,
+    "timeoutMs": 60000,
+    "maxRetries": 2,
+    "gpuId": 0
+  },
+
+  "_comment_ollama_alternative": [
+    "To use Ollama instead of vLLM, replace the inference section above with:",
+    "{",
+    "  \"type\": \"ollama\",",
+    "  \"models\": { \"heavy\": \"qwen2.5:7b\", \"mid\": \"qwen2.5:7b\", \"light\": \"qwen2.5:1.5b\" },",
+    "  \"maxConcurrency\": 10,",
+    "  \"timeoutMs\": 30000,",
+    "  \"maxRetries\": 2,",
+    "  \"gpuId\": 0",
+    "}"
+  ],
+
+  "_comment_embedding": [
+    "EMBEDDINGS (optional):",
+    "  Enable for semantic memory retrieval. Any local provider can serve embeddings.",
+    "  vLLM:    python -m vllm.entrypoints.openai.api_server --model nomic-ai/nomic-embed-text-v1.5 --task embed --port 8101",
+    "  Ollama:  ollama pull nomic-embed-text",
+    "  LM Studio: load nomic-embed-text in the GUI"
+  ],
+  "embedding": {
+    "type": "vllm",
+    "baseUrl": "http://127.0.0.1:8101/v1",
+    "models": {
+      "heavy": "default",
+      "mid": "default",
+      "light": "default"
+    },
+    "maxConcurrency": 4,
+    "timeoutMs": 10000,
+    "maxRetries": 1,
+    "gpuId": 1
+  },
+
+  "proximity": {
+    "decayRatePerTick": 0.1,
+    "interactionBoost": 4,
+    "chatBoost": 2,
+    "promotionThreshold": 60,
+    "backgroundThreshold": 20,
+    "dormantThreshold": 5,
+    "chatMinCloseness": 40,
+    "delegateMinCloseness": 60,
+    "highWaterDecayMultiplier": 0.5
+  },
+
+  "tick": {
+    "fastTickMs": 2000,
+    "slowTickMs": 30000,
+    "maxAgentsPerFastTick": 15,
+    "maxAgentsPerSlowTick": 50,
+    "batchSize": 10
+  },
+
+  "memory": {
+    "workingMemorySize": 5,
+    "episodicRetrievalCount": 5,
+    "importanceThreshold": 3,
+    "decayInterval": 10,
+    "pruneThreshold": 0.5,
+    "summaryRegenerateInterval": 50
+  },
+
+  "logging": {
+    "level": "info",
+    "pretty": true
+  }
+}

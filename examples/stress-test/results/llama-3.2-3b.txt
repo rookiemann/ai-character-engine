@@ -1,0 +1,83 @@
+╔══════════════════════════════════════════════════╗
+║         AI Character Engine - Stress Test        ║
+╚══════════════════════════════════════════════════╝
+  Characters: 6
+  Target fast ticks: 10
+  Fast tick: 800ms, Slow tick: 8000ms
+  Batch size: 6, Max concurrency: 8
+  Event injection every: 3000ms
+
+  Provider: vllm @ http://127.0.0.1:8100/v1
+  Model: Llama-3.2-3B-Instruct-Q8_0.gguf
+
+{"level":30,"time":1772116287910,"pid":57156,"hostname":"DESKTOP-B9ODCK3","module":"plugin-loader","pluginId":"stress-test","pluginName":"Stress Test World","msg":"Plugin validated"}
+vllm connected. Starting simulation...
+
+  Aldric (warrior) closeness=78 tier=active
+  Brynn (merchant) closeness=76 tier=active
+  Cassandra (scholar) closeness=65 tier=active
+  Drake (rogue) closeness=14 tier=dormant
+  Elira (healer) closeness=39 tier=background
+  Fenwick (smith) closeness=51 tier=background
+
+  Expansion systems initialized:
+    World facts: 3
+    Character goals: 6 characters with goals
+    Groups: 1
+
+  [0.5s] Ticks: 0/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.0s] Ticks: 1/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.5s] Ticks: 1/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.0s] Ticks: 2/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.5s] Ticks: 3/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.0s] Ticks: 3/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.5s] Ticks: 4/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.0s] Ticks: 4/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.5s] Ticks: 5/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.1s] Ticks: 6/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.6s] Ticks: 6/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.1s] Ticks: 7/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.6s] Ticks: 8/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.1s] Ticks: 8/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.6s] Ticks: 9/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [8.1s] Ticks: 9/10 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0  
+
+{"level":40,"time":1772116302029,"pid":57156,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-2","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+╔══════════════════════════════════════════════════╗
+║                  RESULTS                        ║
+╠══════════════════════════════════════════════════╣
+║  Duration:           28.0s
+║  Fast ticks:         10
+║  Slow ticks:         1
+║  Total decisions:    36
+║  Throughput:         1.29 decisions/sec
+║  Total tokens:       37513
+║  Tokens/sec:         1339
+║  Avg latency:        10614ms
+║  p50 latency:        10023ms
+║  p95 latency:        13264ms
+║  p99 latency:        13573ms
+║  Errors:             0
+║  Events injected:    2
+║  Tier changes:       0
+║  Memories created:   6
+║  Memories pruned:    0
+╠══════════════════════════════════════════════════╣
+║  Action Breakdown:
+║    dialogue: 35 (97.2%)
+║    idle: 1 (2.8%)
+╠══════════════════════════════════════════════════╣
+║  Expansion Systems:
+║    Aldric: mood=trust(0.10) goals=1 rels=1
+║    Brynn: mood=trust(0.10) goals=1 rels=0
+║    Cassandra: mood=trust(0.10) goals=1 rels=1
+║    Drake: mood=trust(0.10) goals=1 rels=0
+║    Elira: mood=trust(0.10) goals=1 rels=0
+║    Fenwick: mood=trust(0.10) goals=1 rels=0
+║  World facts: 3
+║  Groups: 1
+║  Player interactions tracked: 4
+╠══════════════════════════════════════════════════╣
+║  New Systems:
+║    Decision log entries:  0
+║    Introspection (Aldric):
+║      Emotions:  3 active
+║      Goals:     1
+║      Relations: 3
+║      Groups:    1
+║      Memories:  0 recent
+║    State export:          8 sections exported
+╠══════════════════════════════════════════════════╣
+║  Final Character States:
+║    Aldric (warrior): closeness=78.0 tier=active
+║    Brynn (merchant): closeness=76.0 tier=active
+║    Cassandra (scholar): closeness=65.0 tier=active
+║    Drake (rogue): closeness=13.9 tier=dormant
+║    Elira (healer): closeness=38.9 tier=background
+║    Fenwick (smith): closeness=50.9 tier=background
+╚══════════════════════════════════════════════════╝

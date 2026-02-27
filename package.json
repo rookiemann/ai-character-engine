@@ -1,0 +1,73 @@
+{
+  "name": "ai-character-engine",
+  "version": "0.1.0",
+  "description": "Game-agnostic AI Character Engine with intelligent agents, 3-tier memory, and dynamic proximity",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "Chris",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrisRoland/ai-character-engine.git"
+  },
+  "homepage": "https://github.com/ChrisRoland/ai-character-engine#readme",
+  "bugs": {
+    "url": "https://github.com/ChrisRoland/ai-character-engine/issues"
+  },
+  "keywords": [
+    "ai",
+    "npc",
+    "character-engine",
+    "game-ai",
+    "llm",
+    "agents",
+    "tool-calling",
+    "memory",
+    "proximity",
+    "vllm",
+    "ollama",
+    "game-development",
+    "autonomous-agents"
+  ],
+  "files": [
+    "dist/",
+    "engine.config.example.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "lint": "tsc --noEmit",
+    "demo:sample": "tsx examples/sample-game/index.ts",
+    "demo:sim": "tsx examples/game-simulations/index.ts",
+    "demo:diagnose": "tsx examples/game-simulations/diagnose.ts",
+    "demo:rich": "tsx examples/game-simulations/rich-context.ts",
+    "demo:api": "tsx examples/api-server/index.ts",
+    "demo:starter": "tsx examples/my-first-plugin/index.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "drizzle-orm": "^0.38.0",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "zod": "^3.24.0",
+    "eventemitter3": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.0",
+    "drizzle-kit": "^0.30.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

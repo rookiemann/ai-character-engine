@@ -1,0 +1,92 @@
+╔══════════════════════════════════════════════════╗
+║         AI Character Engine - Stress Test        ║
+╚══════════════════════════════════════════════════╝
+  Characters: 8
+  Target fast ticks: 20
+  Fast tick: 800ms, Slow tick: 8000ms
+  Batch size: 6, Max concurrency: 8
+  Event injection every: 2000ms
+
+  Provider: vllm @ http://127.0.0.1:8100/v1
+  Model: xLAM-2-1B-fc-r-Q4_K_M.gguf
+
+{"level":30,"time":1772120940596,"pid":47032,"hostname":"DESKTOP-B9ODCK3","module":"plugin-loader","pluginId":"stress-test","pluginName":"Stress Test World","msg":"Plugin validated"}
+vllm connected. Starting simulation...
+
+  Aldric (warrior) closeness=65 tier=active
+  Brynn (merchant) closeness=10 tier=dormant
+  Cassandra (scholar) closeness=42 tier=background
+  Drake (rogue) closeness=33 tier=background
+  Elira (healer) closeness=62 tier=active
+  Fenwick (smith) closeness=35 tier=background
+  Gwen (warrior) closeness=44 tier=background
+  Hadrian (merchant) closeness=23 tier=background
+
+  Expansion systems initialized:
+    World facts: 3
+    Character goals: 8 characters with goals
+    Groups: 1
+
+  [0.5s] Ticks: 0/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.0s] Ticks: 1/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.5s] Ticks: 1/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.0s] Ticks: 2/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.6s] Ticks: 3/20 | Dec: 1 | Tools: 0% | Emo: 1 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.1s] Ticks: 3/20 | Dec: 2 | Tools: 0% | Emo: 1 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.6s] Ticks: 4/20 | Dec: 2 | Tools: 0% | Emo: 1 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.1s] Ticks: 5/20 | Dec: 4 | Tools: 25% | Emo: 4 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [4.6s] Ticks: 5/20 | Dec: 5 | Tools: 40% | Emo: 4 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [5.1s] Ticks: 6/20 | Dec: 7 | Tools: 43% | Emo: 9 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [5.6s] Ticks: 6/20 | Dec: 10 | Tools: 30% | Emo: 9 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [6.1s] Ticks: 7/20 | Dec: 12 | Tools: 25% | Emo: 9 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [6.6s] Ticks: 8/20 | Dec: 13 | Tools: 31% | Emo: 9 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [7.1s] Ticks: 8/20 | Dec: 13 | Tools: 31% | Emo: 9 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [7.6s] Ticks: 9/20 | Dec: 16 | Tools: 38% | Emo: 11 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [8.1s] Ticks: 10/20 | Dec: 19 | Tools: 42% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [8.6s] Ticks: 10/20 | Dec: 19 | Tools: 42% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [9.1s] Ticks: 11/20 | Dec: 19 | Tools: 42% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [9.6s] Ticks: 11/20 | Dec: 21 | Tools: 38% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [10.1s] Ticks: 12/20 | Dec: 23 | Tools: 35% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [10.7s] Ticks: 13/20 | Dec: 25 | Tools: 32% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [11.2s] Ticks: 13/20 | Dec: 25 | Tools: 32% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [11.7s] Ticks: 14/20 | Dec: 28 | Tools: 32% | Emo: 11 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [12.2s] Ticks: 15/20 | Dec: 30 | Tools: 33% | Emo: 11 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [12.7s] Ticks: 15/20 | Dec: 31 | Tools: 35% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [13.2s] Ticks: 16/20 | Dec: 32 | Tools: 34% | Emo: 12 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [13.7s] Ticks: 16/20 | Dec: 34 | Tools: 32% | Emo: 13 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [14.2s] Ticks: 17/20 | Dec: 37 | Tools: 30% | Emo: 14 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [14.7s] Ticks: 18/20 | Dec: 39 | Tools: 28% | Emo: 15 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [15.2s] Ticks: 18/20 | Dec: 39 | Tools: 28% | Emo: 15 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0    [15.7s] Ticks: 19/20 | Dec: 40 | Tools: 28% | Emo: 15 | Goals: 1done | Facts: 3 | Groups: 1 | Err: 0  
+
+╔══════════════════════════════════════════════════╗
+║                  RESULTS                        ║
+╠══════════════════════════════════════════════════╣
+║  Duration:           23.7s
+║  Fast ticks:         20
+║  Slow ticks:         2
+║  Total decisions:    62
+║  Throughput:         2.61 decisions/sec
+║  Total tokens:       52877
+║  Tokens/sec:         2230
+║  Avg latency:        3826ms
+║  p50 latency:        3258ms
+║  p95 latency:        8709ms
+║  p99 latency:        10480ms
+║  Errors:             0
+║  Events injected:    8
+║  Tier changes:       0
+║  Memories created:   22
+║  Memories pruned:    0
+╠══════════════════════════════════════════════════╣
+║  Action Breakdown:
+║    move_to: 13 (21.0%)
+║    talk_to: 4 (6.5%)
+║    trade: 1 (1.6%)
+║    dialogue: 44 (71.0%)
+║    idle: 0 (0.0%)
+╠══════════════════════════════════════════════════╣
+║  Expansion Systems:
+║    Aldric: mood=trust(0.98) goals=1 rels=1
+║    Brynn: mood=trust(0.10) goals=1 rels=0
+║    Cassandra: mood=trust(0.10) goals=1 rels=1
+║    Drake: mood=anger(0.28) goals=1 rels=0
+║    Elira: mood=trust(0.87) goals=1 rels=0
+║    Fenwick: mood=anticipation(0.25) goals=1 rels=0
+║    Gwen: mood=anger(0.36) goals=1 rels=0
+║    Hadrian: mood=trust(0.10) goals=1 rels=0
+║  World facts: 3
+║  Groups: 1
+║  Player interactions tracked: 24
+╠══════════════════════════════════════════════════╣
+║  New Systems:
+║    Decision log entries:  43
+║    Last decision tier:    heavy
+║    Introspection (Aldric):
+║      Emotions:  5 active
+║      Goals:     1
+║      Relations: 4
+║      Groups:    1
+║      Memories:  3 recent
+║    State export:          8 sections exported
+╠══════════════════════════════════════════════════╣
+║  Final Character States:
+║    Aldric (warrior): closeness=64.9 tier=active
+║    Brynn (merchant): closeness=9.8 tier=dormant
+║    Cassandra (scholar): closeness=41.8 tier=background
+║    Drake (rogue): closeness=32.8 tier=background
+║    Elira (healer): closeness=61.9 tier=active
+║    Fenwick (smith): closeness=34.8 tier=background
+║    Gwen (warrior): closeness=43.8 tier=background
+║    Hadrian (merchant): closeness=22.8 tier=background
+╚══════════════════════════════════════════════════╝

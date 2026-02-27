@@ -1,0 +1,117 @@
+╔══════════════════════════════════════════════════╗
+║         AI Character Engine - Stress Test        ║
+╚══════════════════════════════════════════════════╝
+  Characters: 16
+  Target fast ticks: 60
+  Fast tick: 800ms, Slow tick: 8000ms
+  Batch size: 6, Max concurrency: 8
+  Event injection every: 2000ms
+
+  Provider: vllm @ http://127.0.0.1:8100/v1
+  Model: xLAM-2-1B-fc-r-Q4_K_M.gguf
+
+{"level":30,"time":1772122335862,"pid":39068,"hostname":"DESKTOP-B9ODCK3","module":"plugin-loader","pluginId":"stress-test","pluginName":"Stress Test World","msg":"Plugin validated"}
+vllm connected. Starting simulation...
+
+  Aldric (warrior) closeness=41 tier=background
+  Brynn (merchant) closeness=57 tier=background
+  Cassandra (scholar) closeness=66 tier=active
+  Drake (rogue) closeness=35 tier=background
+  Elira (healer) closeness=19 tier=dormant
+  Fenwick (smith) closeness=59 tier=background
+  Gwen (warrior) closeness=24 tier=background
+  Hadrian (merchant) closeness=8 tier=dormant
+  Isolde (scholar) closeness=83 tier=active
+  Jasper (rogue) closeness=49 tier=background
+  Kira (healer) closeness=11 tier=dormant
+  Lucan (smith) closeness=68 tier=active
+  Aldric (warrior) closeness=6 tier=dormant
+  Brynn (merchant) closeness=57 tier=background
+  Cassandra (scholar) closeness=44 tier=background
+  Drake (rogue) closeness=80 tier=active
+
+  Expansion systems initialized:
+    World facts: 3
+    Character goals: 16 characters with goals
+    Groups: 1
+
+  [0.5s] Ticks: 0/60 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.0s] Ticks: 1/60 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.5s] Ticks: 1/60 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.0s] Ticks: 2/60 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.5s] Ticks: 3/60 | Dec: 1 | Tools: 0% | Emo: 1 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.1s] Ticks: 3/60 | Dec: 3 | Tools: 0% | Emo: 5 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.6s] Ticks: 4/60 | Dec: 4 | Tools: 0% | Emo: 5 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.1s] Ticks: 5/60 | Dec: 5 | Tools: 20% | Emo: 4 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.6s] Ticks: 5/60 | Dec: 7 | Tools: 29% | Emo: 6 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.1s] Ticks: 6/60 | Dec: 7 | Tools: 29% | Emo: 6 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.6s] Ticks: 6/60 | Dec: 8 | Tools: 25% | Emo: 6 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.1s] Ticks: 7/60 | Dec: 13 | Tools: 38% | Emo: 6 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.6s] Ticks: 8/60 | Dec: 13 | Tools: 38% | Emo: 6 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.1s] Ticks: 8/60 | Dec: 18 | Tools: 44% | Emo: 8 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.6s] Ticks: 9/60 | Dec: 23 | Tools: 43% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [8.2s] Ticks: 10/60 | Dec: 26 | Tools: 42% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [8.7s] Ticks: 10/60 | Dec: 26 | Tools: 42% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [9.2s] Ticks: 11/60 | Dec: 26 | Tools: 42% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [9.7s] Ticks: 11/60 | Dec: 30 | Tools: 43% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [10.2s] Ticks: 12/60 | Dec: 31 | Tools: 45% | Emo: 11 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [10.7s] Ticks: 13/60 | Dec: 35 | Tools: 40% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [11.2s] Ticks: 13/60 | Dec: 37 | Tools: 38% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [11.7s] Ticks: 14/60 | Dec: 40 | Tools: 35% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [12.2s] Ticks: 15/60 | Dec: 43 | Tools: 35% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [12.7s] Ticks: 15/60 | Dec: 44 | Tools: 36% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [13.2s] Ticks: 16/60 | Dec: 48 | Tools: 35% | Emo: 11 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [13.7s] Ticks: 16/60 | Dec: 53 | Tools: 32% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [14.2s] Ticks: 17/60 | Dec: 56 | Tools: 30% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [14.7s] Ticks: 18/60 | Dec: 57 | Tools: 30% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [15.2s] Ticks: 18/60 | Dec: 59 | Tools: 29% | Emo: 13 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [15.8s] Ticks: 19/60 | Dec: 61 | Tools: 28% | Emo: 13 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [16.3s] Ticks: 20/60 | Dec: 61 | Tools: 28% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [16.8s] Ticks: 20/60 | Dec: 64 | Tools: 27% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [17.3s] Ticks: 21/60 | Dec: 68 | Tools: 28% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [17.8s] Ticks: 21/60 | Dec: 70 | Tools: 27% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [18.3s] Ticks: 22/60 | Dec: 75 | Tools: 25% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [18.8s] Ticks: 23/60 | Dec: 77 | Tools: 25% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [19.3s] Ticks: 23/60 | Dec: 81 | Tools: 23% | Emo: 17 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [19.8s] Ticks: 24/60 | Dec: 84 | Tools: 23% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [20.3s] Ticks: 25/60 | Dec: 86 | Tools: 22% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [20.8s] Ticks: 25/60 | Dec: 90 | Tools: 21% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [21.3s] Ticks: 26/60 | Dec: 98 | Tools: 19% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [21.8s] Ticks: 26/60 | Dec: 99 | Tools: 19% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [22.3s] Ticks: 27/60 | Dec: 103 | Tools: 18% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [22.8s] Ticks: 28/60 | Dec: 104 | Tools: 19% | Emo: 17 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [23.4s] Ticks: 28/60 | Dec: 110 | Tools: 18% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [23.9s] Ticks: 29/60 | Dec: 111 | Tools: 18% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [24.4s] Ticks: 30/60 | Dec: 114 | Tools: 18% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [24.9s] Ticks: 30/60 | Dec: 117 | Tools: 17% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [25.4s] Ticks: 31/60 | Dec: 123 | Tools: 16% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [25.9s] Ticks: 31/60 | Dec: 127 | Tools: 16% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [26.4s] Ticks: 32/60 | Dec: 129 | Tools: 16% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [26.9s] Ticks: 33/60 | Dec: 132 | Tools: 16% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [27.4s] Ticks: 33/60 | Dec: 139 | Tools: 15% | Emo: 22 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [27.9s] Ticks: 34/60 | Dec: 140 | Tools: 15% | Emo: 24 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [28.5s] Ticks: 35/60 | Dec: 141 | Tools: 15% | Emo: 24 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [29.0s] Ticks: 35/60 | Dec: 147 | Tools: 14% | Emo: 24 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [29.5s] Ticks: 36/60 | Dec: 148 | Tools: 14% | Emo: 24 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [30.0s] Ticks: 37/60 | Dec: 153 | Tools: 14% | Emo: 29 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [30.5s] Ticks: 37/60 | Dec: 158 | Tools: 15% | Emo: 31 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [31.0s] Ticks: 38/60 | Dec: 164 | Tools: 15% | Emo: 29 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [31.5s] Ticks: 38/60 | Dec: 164 | Tools: 15% | Emo: 29 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [32.0s] Ticks: 39/60 | Dec: 169 | Tools: 14% | Emo: 29 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [32.6s] Ticks: 40/60 | Dec: 173 | Tools: 14% | Emo: 26 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [33.1s] Ticks: 40/60 | Dec: 173 | Tools: 14% | Emo: 26 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [33.6s] Ticks: 41/60 | Dec: 176 | Tools: 14% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [34.1s] Ticks: 42/60 | Dec: 180 | Tools: 14% | Emo: 22 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [34.6s] Ticks: 42/60 | Dec: 181 | Tools: 14% | Emo: 22 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [35.1s] Ticks: 43/60 | Dec: 186 | Tools: 13% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [35.6s] Ticks: 43/60 | Dec: 190 | Tools: 13% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [36.1s] Ticks: 44/60 | Dec: 194 | Tools: 13% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [36.6s] Ticks: 45/60 | Dec: 198 | Tools: 13% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [37.2s] Ticks: 45/60 | Dec: 200 | Tools: 13% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [37.7s] Ticks: 46/60 | Dec: 205 | Tools: 13% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [38.2s] Ticks: 47/60 | Dec: 208 | Tools: 13% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [38.7s] Ticks: 47/60 | Dec: 210 | Tools: 12% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [39.2s] Ticks: 48/60 | Dec: 211 | Tools: 12% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [39.7s] Ticks: 49/60 | Dec: 216 | Tools: 12% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [40.2s] Ticks: 49/60 | Dec: 217 | Tools: 12% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [40.7s] Ticks: 50/60 | Dec: 219 | Tools: 12% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [41.2s] Ticks: 50/60 | Dec: 224 | Tools: 12% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [41.7s] Ticks: 51/60 | Dec: 227 | Tools: 12% | Emo: 24 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [42.2s] Ticks: 52/60 | Dec: 229 | Tools: 12% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [42.7s] Ticks: 52/60 | Dec: 233 | Tools: 12% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [43.2s] Ticks: 53/60 | Dec: 236 | Tools: 11% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [43.8s] Ticks: 54/60 | Dec: 237 | Tools: 11% | Emo: 16 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [44.3s] Ticks: 54/60 | Dec: 239 | Tools: 12% | Emo: 18 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [44.8s] Ticks: 55/60 | Dec: 240 | Tools: 12% | Emo: 17 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [45.3s] Ticks: 55/60 | Dec: 244 | Tools: 12% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [45.8s] Ticks: 56/60 | Dec: 246 | Tools: 12% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [46.3s] Ticks: 57/60 | Dec: 248 | Tools: 12% | Emo: 22 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [46.8s] Ticks: 57/60 | Dec: 252 | Tools: 12% | Emo: 24 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [47.3s] Ticks: 58/60 | Dec: 252 | Tools: 12% | Emo: 23 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [47.8s] Ticks: 59/60 | Dec: 253 | Tools: 11% | Emo: 22 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [48.3s] Ticks: 59/60 | Dec: 260 | Tools: 11% | Emo: 23 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0  
+
+{"level":40,"time":1772122389896,"pid":39068,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-11","tool":"move_to","error":"Parameter 'location' must be one of: town_square, marketplace, tavern, docks, temple, barracks, forest_edge, castle_gate","msg":"Tool call failed, falling back to idle"}
+╔══════════════════════════════════════════════════╗
+║                  RESULTS                        ║
+╠══════════════════════════════════════════════════╣
+║  Duration:           59.4s
+║  Fast ticks:         60
+║  Slow ticks:         6
+║  Total decisions:    312
+║  Throughput:         5.26 decisions/sec
+║  Total tokens:       297621
+║  Tokens/sec:         5014
+║  Avg latency:        5759ms
+║  p50 latency:        4725ms
+║  p95 latency:        11829ms
+║  p99 latency:        14523ms
+║  Errors:             0
+║  Events injected:    24
+║  Tier changes:       0
+║  Memories created:   65
+║  Memories pruned:    0
+╠══════════════════════════════════════════════════╣
+║  Action Breakdown:
+║    move_to: 19 (6.1%)
+║    talk_to: 14 (4.5%)
+║    trade: 1 (0.3%)
+║    dialogue: 277 (88.8%)
+║    idle: 1 (0.3%)
+╠══════════════════════════════════════════════════╣
+║  Expansion Systems:
+║    Aldric: mood=trust(0.10) goals=1 rels=1
+║    Brynn: mood=anticipation(0.31) goals=1 rels=0
+║    Cassandra: mood=trust(0.98) goals=1 rels=1
+║    Drake: mood=trust(0.10) goals=1 rels=0
+║    Elira: mood=trust(0.10) goals=1 rels=0
+║    Fenwick: mood=trust(0.10) goals=1 rels=0
+║    Gwen: mood=trust(0.08) goals=1 rels=0
+║    Hadrian: mood=trust(0.10) goals=1 rels=0
+║    Isolde: mood=trust(1.00) goals=1 rels=0
+║    Jasper: mood=trust(0.16) goals=1 rels=0
+║    Kira: mood=trust(0.10) goals=1 rels=0
+║    Lucan: mood=trust(0.98) goals=1 rels=0
+║    Aldric: mood=trust(0.10) goals=1 rels=0
+║    Brynn: mood=anticipation(0.39) goals=1 rels=0
+║    Cassandra: mood=trust(0.10) goals=1 rels=0
+║    Drake: mood=trust(1.00) goals=1 rels=0
+║  World facts: 3
+║  Groups: 1
+║  Player interactions tracked: 76
+╠══════════════════════════════════════════════════╣
+║  New Systems:
+║    Decision log entries:  262
+║    Last decision tier:    mid
+║    Introspection (Aldric):
+║      Emotions:  0 active
+║      Goals:     1
+║      Relations: 7
+║      Groups:    1
+║      Memories:  3 recent
+║    State export:          8 sections exported
+╠══════════════════════════════════════════════════╣
+║  Final Character States:
+║    Aldric (warrior): closeness=40.4 tier=background
+║    Brynn (merchant): closeness=56.4 tier=background
+║    Cassandra (scholar): closeness=65.7 tier=active
+║    Drake (rogue): closeness=34.4 tier=background
+║    Elira (healer): closeness=18.4 tier=dormant
+║    Fenwick (smith): closeness=58.4 tier=background
+║    Gwen (warrior): closeness=23.4 tier=background
+║    Hadrian (merchant): closeness=7.4 tier=dormant
+║    Isolde (scholar): closeness=82.8 tier=active
+║    Jasper (rogue): closeness=48.4 tier=background
+║    Kira (healer): closeness=10.4 tier=dormant
+║    Lucan (smith): closeness=67.7 tier=active
+║    Aldric (warrior): closeness=5.4 tier=dormant
+║    Brynn (merchant): closeness=56.4 tier=background
+║    Cassandra (scholar): closeness=43.4 tier=background
+║    Drake (rogue): closeness=79.7 tier=active
+╚══════════════════════════════════════════════════╝

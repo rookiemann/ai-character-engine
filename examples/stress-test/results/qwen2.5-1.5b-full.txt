@@ -1,0 +1,91 @@
+╔══════════════════════════════════════════════════╗
+║         AI Character Engine - Stress Test        ║
+╚══════════════════════════════════════════════════╝
+  Characters: 8
+  Target fast ticks: 30
+  Fast tick: 800ms, Slow tick: 8000ms
+  Batch size: 6, Max concurrency: 8
+  Event injection every: 2000ms
+
+  Provider: vllm @ http://127.0.0.1:8100/v1
+  Model: qwen2.5-1.5b-instruct-q8_0.gguf
+
+{"level":30,"time":1772117840748,"pid":55512,"hostname":"DESKTOP-B9ODCK3","module":"plugin-loader","pluginId":"stress-test","pluginName":"Stress Test World","msg":"Plugin validated"}
+vllm connected. Starting simulation...
+
+  Aldric (warrior) closeness=55 tier=background
+  Brynn (merchant) closeness=21 tier=background
+  Cassandra (scholar) closeness=59 tier=background
+  Drake (rogue) closeness=35 tier=background
+  Elira (healer) closeness=6 tier=dormant
+  Fenwick (smith) closeness=70 tier=active
+  Gwen (warrior) closeness=83 tier=active
+  Hadrian (merchant) closeness=7 tier=dormant
+
+  Expansion systems initialized:
+    World facts: 3
+    Character goals: 8 characters with goals
+    Groups: 1
+
+  [0.5s] Ticks: 0/30 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.0s] Ticks: 1/30 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.5s] Ticks: 1/30 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.1s] Ticks: 2/30 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.6s] Ticks: 3/30 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.1s] Ticks: 3/30 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.6s] Ticks: 4/30 | Dec: 5 | Tools: 20% | Emo: 7 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.1s] Ticks: 5/30 | Dec: 7 | Tools: 14% | Emo: 7 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.6s] Ticks: 5/30 | Dec: 7 | Tools: 14% | Emo: 7 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.1s] Ticks: 6/30 | Dec: 7 | Tools: 14% | Emo: 7 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.6s] Ticks: 6/30 | Dec: 7 | Tools: 14% | Emo: 7 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.1s] Ticks: 7/30 | Dec: 8 | Tools: 13% | Emo: 7 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.7s] Ticks: 8/30 | Dec: 10 | Tools: 20% | Emo: 8 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.2s] Ticks: 8/30 | Dec: 16 | Tools: 25% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.7s] Ticks: 9/30 | Dec: 17 | Tools: 29% | Emo: 8 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [8.2s] Ticks: 10/30 | Dec: 18 | Tools: 28% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [8.7s] Ticks: 10/30 | Dec: 18 | Tools: 28% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [9.2s] Ticks: 11/30 | Dec: 18 | Tools: 28% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [9.7s] Ticks: 11/30 | Dec: 21 | Tools: 29% | Emo: 11 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [10.2s] Ticks: 12/30 | Dec: 21 | Tools: 29% | Emo: 11 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [10.7s] Ticks: 13/30 | Dec: 24 | Tools: 29% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [11.2s] Ticks: 13/30 | Dec: 26 | Tools: 31% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [11.7s] Ticks: 14/30 | Dec: 28 | Tools: 36% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [12.2s] Ticks: 15/30 | Dec: 29 | Tools: 34% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [12.7s] Ticks: 15/30 | Dec: 29 | Tools: 34% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [13.2s] Ticks: 16/30 | Dec: 32 | Tools: 31% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [13.7s] Ticks: 16/30 | Dec: 35 | Tools: 34% | Emo: 9 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [14.3s] Ticks: 17/30 | Dec: 36 | Tools: 36% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [14.8s] Ticks: 18/30 | Dec: 36 | Tools: 36% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [15.3s] Ticks: 18/30 | Dec: 37 | Tools: 35% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [15.8s] Ticks: 19/30 | Dec: 39 | Tools: 33% | Emo: 10 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [16.3s] Ticks: 20/30 | Dec: 41 | Tools: 32% | Emo: 13 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [16.8s] Ticks: 20/30 | Dec: 41 | Tools: 32% | Emo: 13 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [17.3s] Ticks: 21/30 | Dec: 42 | Tools: 31% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [17.8s] Ticks: 21/30 | Dec: 43 | Tools: 30% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [18.3s] Ticks: 22/30 | Dec: 44 | Tools: 30% | Emo: 12 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [18.8s] Ticks: 23/30 | Dec: 49 | Tools: 29% | Emo: 14 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [19.3s] Ticks: 23/30 | Dec: 53 | Tools: 26% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [19.8s] Ticks: 24/30 | Dec: 55 | Tools: 25% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [20.3s] Ticks: 25/30 | Dec: 56 | Tools: 25% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [20.8s] Ticks: 25/30 | Dec: 58 | Tools: 24% | Emo: 19 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [21.3s] Ticks: 26/30 | Dec: 63 | Tools: 22% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [21.9s] Ticks: 26/30 | Dec: 64 | Tools: 22% | Emo: 21 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [22.4s] Ticks: 27/30 | Dec: 64 | Tools: 22% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [22.9s] Ticks: 28/30 | Dec: 64 | Tools: 22% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [23.4s] Ticks: 28/30 | Dec: 64 | Tools: 22% | Emo: 20 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [23.9s] Ticks: 29/30 | Dec: 66 | Tools: 23% | Emo: 22 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0  
+
+╔══════════════════════════════════════════════════╗
+║                  RESULTS                        ║
+╠══════════════════════════════════════════════════╣
+║  Duration:           28.8s
+║  Fast ticks:         30
+║  Slow ticks:         3
+║  Total decisions:    87
+║  Throughput:         3.02 decisions/sec
+║  Total tokens:       70527
+║  Tokens/sec:         2448
+║  Avg latency:        3497ms
+║  p50 latency:        2855ms
+║  p95 latency:        8738ms
+║  p99 latency:        11370ms
+║  Errors:             0
+║  Events injected:    12
+║  Tier changes:       0
+║  Memories created:   22
+║  Memories pruned:    0
+╠══════════════════════════════════════════════════╣
+║  Action Breakdown:
+║    talk_to: 9 (10.3%)
+║    move_to: 7 (8.0%)
+║    dialogue: 71 (81.6%)
+║    idle: 0 (0.0%)
+╠══════════════════════════════════════════════════╣
+║  Expansion Systems:
+║    Aldric: mood=trust(0.10) goals=1 rels=1
+║    Brynn: mood=trust(0.40) goals=1 rels=0
+║    Cassandra: mood=fear(0.34) goals=1 rels=1
+║    Drake: mood=trust(0.21) goals=1 rels=0
+║    Elira: mood=trust(0.10) goals=1 rels=0
+║    Fenwick: mood=trust(0.98) goals=1 rels=0
+║    Gwen: mood=trust(0.98) goals=1 rels=0
+║    Hadrian: mood=trust(0.05) goals=1 rels=0
+║  World facts: 3
+║  Groups: 1
+║  Player interactions tracked: 42
+╠══════════════════════════════════════════════════╣
+║  New Systems:
+║    Decision log entries:  69
+║    Last decision tier:    mid
+║    Introspection (Aldric):
+║      Emotions:  2 active
+║      Goals:     1
+║      Relations: 5
+║      Groups:    1
+║      Memories:  0 recent
+║    State export:          8 sections exported
+╠══════════════════════════════════════════════════╣
+║  Final Character States:
+║    Aldric (warrior): closeness=54.7 tier=background
+║    Brynn (merchant): closeness=20.7 tier=background
+║    Cassandra (scholar): closeness=58.7 tier=background
+║    Drake (rogue): closeness=34.7 tier=background
+║    Elira (healer): closeness=5.7 tier=dormant
+║    Fenwick (smith): closeness=69.9 tier=active
+║    Gwen (warrior): closeness=82.9 tier=active
+║    Hadrian (merchant): closeness=6.7 tier=dormant
+╚══════════════════════════════════════════════════╝

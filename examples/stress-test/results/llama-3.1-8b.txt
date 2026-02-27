@@ -1,0 +1,125 @@
+╔══════════════════════════════════════════════════╗
+║         AI Character Engine - Stress Test        ║
+╚══════════════════════════════════════════════════╝
+  Characters: 8
+  Target fast ticks: 20
+  Fast tick: 800ms, Slow tick: 8000ms
+  Batch size: 6, Max concurrency: 8
+  Event injection every: 2000ms
+
+  Provider: vllm @ http://127.0.0.1:8100/v1
+  Model: Meta-Llama-3.1-8B-Instruct-Q6_K.gguf
+
+{"level":30,"time":1772120461701,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"plugin-loader","pluginId":"stress-test","pluginName":"Stress Test World","msg":"Plugin validated"}
+vllm connected. Starting simulation...
+
+  Aldric (warrior) closeness=75 tier=active
+  Brynn (merchant) closeness=58 tier=background
+  Cassandra (scholar) closeness=46 tier=background
+  Drake (rogue) closeness=43 tier=background
+  Elira (healer) closeness=49 tier=background
+  Fenwick (smith) closeness=53 tier=background
+  Gwen (warrior) closeness=49 tier=background
+  Hadrian (merchant) closeness=41 tier=background
+
+  Expansion systems initialized:
+    World facts: 3
+    Character goals: 8 characters with goals
+    Groups: 1
+
+  [0.5s] Ticks: 0/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.0s] Ticks: 1/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [1.5s] Ticks: 1/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.0s] Ticks: 2/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [2.5s] Ticks: 3/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.0s] Ticks: 3/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [3.5s] Ticks: 4/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.1s] Ticks: 4/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [4.6s] Ticks: 5/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.1s] Ticks: 6/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [5.6s] Ticks: 6/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.1s] Ticks: 7/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [6.6s] Ticks: 8/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.1s] Ticks: 8/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [7.7s] Ticks: 9/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [8.2s] Ticks: 10/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [8.7s] Ticks: 10/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [9.2s] Ticks: 11/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [9.7s] Ticks: 11/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [10.2s] Ticks: 12/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [10.7s] Ticks: 13/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [11.2s] Ticks: 13/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [11.7s] Ticks: 14/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [12.2s] Ticks: 15/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [12.7s] Ticks: 15/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [13.2s] Ticks: 16/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [13.7s] Ticks: 16/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [14.2s] Ticks: 17/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [14.8s] Ticks: 18/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [15.3s] Ticks: 18/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0    [15.8s] Ticks: 19/20 | Dec: 0 | Tools: 0% | Emo: 0 | Goals: 0done | Facts: 3 | Groups: 1 | Err: 0  
+
+{"level":40,"time":1772120492917,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-4","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120493028,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-2","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120493403,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-4","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120493543,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-2","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120493914,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-3","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120493914,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-7","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120495821,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-4","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120495822,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-2","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120496044,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-2","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120496169,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-6","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120496279,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-1","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120496586,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-3","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120499740,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120499842,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500044,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500133,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500310,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500397,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500398,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500548,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500549,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500623,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500847,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500847,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500910,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120500973,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120501035,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120501084,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120501084,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120501131,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120501132,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120502865,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-1","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120503153,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-7","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120505246,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120505327,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120505447,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"move_to","error":"Missing required parameter 'location' for tool move_to","msg":"Tool call failed, falling back to idle"}
+{"level":40,"time":1772120505623,"pid":22864,"hostname":"DESKTOP-B9ODCK3","module":"agent-runner","characterId":"char-0","tool":"talk_to","error":"Missing required parameter 'target' for tool talk_to","msg":"Tool call failed, falling back to idle"}
+╔══════════════════════════════════════════════════╗
+║                  RESULTS                        ║
+╠══════════════════════════════════════════════════╣
+║  Duration:           51.0s
+║  Fast ticks:         20
+║  Slow ticks:         2
+║  Total decisions:    37
+║  Throughput:         0.73 decisions/sec
+║  Total tokens:       35347
+║  Tokens/sec:         694
+║  Avg latency:        28953ms
+║  p50 latency:        27939ms
+║  p95 latency:        36479ms
+║  p99 latency:        37187ms
+║  Errors:             0
+║  Events injected:    8
+║  Tier changes:       0
+║  Memories created:   0
+║  Memories pruned:    0
+╠══════════════════════════════════════════════════╣
+║  Action Breakdown:
+║    dialogue: 0 (0.0%)
+║    idle: 37 (100.0%)
+╠══════════════════════════════════════════════════╣
+║  Expansion Systems:
+║    Aldric: mood=trust(0.10) goals=1 rels=1
+║    Brynn: mood=trust(0.10) goals=1 rels=0
+║    Cassandra: mood=trust(0.10) goals=1 rels=1
+║    Drake: mood=trust(0.10) goals=1 rels=0
+║    Elira: mood=trust(0.10) goals=1 rels=0
+║    Fenwick: mood=trust(0.10) goals=1 rels=0
+║    Gwen: mood=trust(0.10) goals=1 rels=0
+║    Hadrian: mood=trust(0.10) goals=1 rels=0
+║  World facts: 3
+║  Groups: 1
+║  Player interactions tracked: 16
+╠══════════════════════════════════════════════════╣
+║  New Systems:
+║    Decision log entries:  0
+║    Introspection (Aldric):
+║      Emotions:  0 active
+║      Goals:     1
+║      Relations: 3
+║      Groups:    1
+║      Memories:  0 recent
+║    State export:          8 sections exported
+╠══════════════════════════════════════════════════╣
+║  Final Character States:
+║    Aldric (warrior): closeness=74.9 tier=active
+║    Brynn (merchant): closeness=57.8 tier=background
+║    Cassandra (scholar): closeness=45.8 tier=background
+║    Drake (rogue): closeness=42.8 tier=background
+║    Elira (healer): closeness=48.8 tier=background
+║    Fenwick (smith): closeness=52.8 tier=background
+║    Gwen (warrior): closeness=48.8 tier=background
+║    Hadrian (merchant): closeness=40.8 tier=background
+╚══════════════════════════════════════════════════╝
