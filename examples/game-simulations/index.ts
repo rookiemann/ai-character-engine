@@ -1,13 +1,16 @@
 /**
  * Multi-Genre Game Simulations
  *
- * Tests the engine across 3 completely different game types to verify
+ * Tests the engine across 6 completely different game types to verify
  * it adapts to different contexts, tool sets, and world rules.
  *
  * Games:
- *   1. Pirate Crew      — Ship adventure, treasure, naval combat
- *   2. Space Station     — Sci-fi survival, repairs, research, defense
- *   3. Farm Village      — Peaceful life sim, farming, crafting, socializing
+ *   1. Pirate Crew       — Ship adventure, treasure, naval combat
+ *   2. Space Station      — Sci-fi survival, repairs, research, defense
+ *   3. Farm Village       — Peaceful life sim, farming, crafting, socializing
+ *   4. Detective Agency   — Modern investigation, evidence, interrogation
+ *   5. Survival Colony    — Post-apocalyptic resource management
+ *   6. Wizard Academy     — Fantasy school, spells, potions, duels
  *
  * Usage:
  *   npx tsx examples/game-simulations/index.ts
@@ -461,6 +464,420 @@ function createFarmPlugin(charCount: number): GamePlugin {
 }
 
 // ═══════════════════════════════════════════════════════════
+// GAME 4: DETECTIVE AGENCY
+// ═══════════════════════════════════════════════════════════
+
+function createDetectivePlugin(charCount: number): GamePlugin {
+  const LOCATIONS = ['precinct_hq', 'crime_scene', 'forensics_lab', 'interrogation_room', 'stakeout_van', 'courthouse', 'morgue', 'downtown_alley'];
+  const ARCHETYPES: Array<{ id: string; name: string; traits: string[]; goals: string[] }> = [
+    { id: 'lead_detective',   name: 'Lead Detective',   traits: ['intuitive', 'relentless'],    goals: ['Solve the case', 'Protect the team'] },
+    { id: 'forensic_analyst', name: 'Forensic Analyst', traits: ['meticulous', 'analytical'],   goals: ['Process every piece of evidence', 'Build an airtight case'] },
+    { id: 'undercover_agent', name: 'Undercover Agent', traits: ['adaptable', 'secretive'],     goals: ['Infiltrate the suspect network', 'Maintain cover'] },
+    { id: 'beat_cop',         name: 'Beat Cop',         traits: ['dependable', 'streetwise'],   goals: ['Keep the neighborhood safe', 'Earn a promotion'] },
+    { id: 'profiler',         name: 'Profiler',         traits: ['perceptive', 'cerebral'],     goals: ['Predict the suspect behavior', 'Build a psychological profile'] },
+    { id: 'tech_specialist',  name: 'Tech Specialist',  traits: ['inventive', 'focused'],       goals: ['Crack encrypted devices', 'Trace digital footprints'] },
+    { id: 'prosecutor',       name: 'Prosecutor',       traits: ['eloquent', 'determined'],     goals: ['Win the conviction', 'Ensure justice is served'] },
+    { id: 'informant',        name: 'Informant',        traits: ['nervous', 'well-connected'],  goals: ['Stay alive', 'Feed useful tips to the agency'] },
+  ];
+  const NAMES = [
+    'Reeves', 'Montoya', 'Bishop', 'Callahan', 'Ortiz', 'Shaw', 'Nakamura', 'Barrett',
+    'Dixon', 'Vasquez', 'Thornton', 'Kim', 'Malone', 'Rivera', 'Gallagher', 'Chen',
+    'Harper', 'DeLuca', 'Cross', 'Sterling', 'Park', 'Quinn', 'Wolfe', 'Santos',
+    'Frost', 'Keane', 'Vega', 'Monroe', 'Blackwell', 'Torres', 'Reed', 'Doyle',
+  ];
+
+  const charLocations = new Map<string, string>();
+  const caseProgress = { value: 15 };
+  const suspicionLevel = { value: 30 };
+
+  const chars: CharacterDefinition[] = [];
+  for (let i = 0; i < charCount; i++) {
+    const arch = ARCHETYPES[i % ARCHETYPES.length];
+    const loc = LOCATIONS[i % LOCATIONS.length];
+    charLocations.set(`detective-${i}`, loc);
+    chars.push({
+      id: `detective-${i}`,
+      name: NAMES[i % NAMES.length],
+      archetype: arch.id,
+      identity: {
+        personality: `A ${arch.traits.join(' and ')} ${arch.name.toLowerCase()}. Years on the force have sharpened every instinct.`,
+        backstory: `Joined the agency after ${pick(['a personal tragedy', 'military service', 'graduating top of the academy', 'years as a patrol officer'])}. Driven by ${pick(['justice', 'ambition', 'guilt', 'duty'])}.`,
+        goals: arch.goals,
+        traits: arch.traits,
+        speechStyle: `Speaks in clipped, professional tones. Uses law-enforcement jargon.`,
+      },
+      initialCloseness: 35 + (i % 6) * 10,
+    });
+  }
+
+  return {
+    id: 'detective-agency',
+    name: 'Metro Detective Agency',
+    getArchetypes: () => ARCHETYPES.map(a => ({
+      id: a.id, name: a.name, description: `Agency ${a.name.toLowerCase()}`,
+      defaultIdentity: { personality: a.traits.join(', '), backstory: `A ${a.name.toLowerCase()}.`, goals: a.goals, traits: a.traits },
+    })),
+    getInitialCharacters: () => chars,
+    getTools(): Array<{ definition: ToolDefinition; executor: ToolExecutorFn }> {
+      return [
+        {
+          definition: { name: 'interrogate', description: 'Question a suspect or witness about the case', parameters: [
+            { name: 'target', type: 'string', description: 'Who to interrogate', required: true },
+            { name: 'approach', type: 'string', description: 'Interrogation style', enum: ['friendly', 'aggressive', 'deceptive', 'silent_pressure'], required: true },
+          ]},
+          executor: (args) => {
+            caseProgress.value = Math.min(100, caseProgress.value + 3);
+            return {
+              success: true, result: `Interrogated ${args.target} (${args.approach}): ${pick(['They cracked and gave a lead!', 'Refused to talk.', 'Story has inconsistencies.', 'Alibi checks out.', 'Demanded a lawyer.'])}`,
+              sideEffects: [{ type: 'dialogue', source: 'agent', target: args.target as string, data: { approach: args.approach }, timestamp: Date.now() }],
+            };
+          },
+        },
+        {
+          definition: { name: 'search_evidence', description: 'Search a location for physical evidence', parameters: [
+            { name: 'location', type: 'string', description: 'Where to search', enum: ['crime_scene', 'suspect_home', 'vehicle', 'dumpster', 'office', 'warehouse'], required: true },
+          ]},
+          executor: (args) => {
+            const finds = ['fingerprints on a door handle', 'a bloodstained cloth', 'shell casings', 'a burner phone', 'nothing usable', 'a torn receipt'];
+            caseProgress.value = Math.min(100, caseProgress.value + 2);
+            return { success: true, result: `Searched ${args.location}: found ${pick(finds)}` };
+          },
+        },
+        {
+          definition: { name: 'stake_out', description: 'Watch a location for suspect activity', parameters: [
+            { name: 'target_location', type: 'string', description: 'Where to observe', required: true },
+            { name: 'duration', type: 'string', description: 'How long to watch', enum: ['one_hour', 'half_day', 'overnight'], required: true },
+          ]},
+          executor: (args) => ({
+            success: true, result: `Staked out ${args.target_location} for ${args.duration}: ${pick(['Suspect arrived and met someone.', 'No activity.', 'Spotted suspicious vehicle.', 'Suspect left carrying a bag.', 'Got photos of an exchange.'])}`,
+          }),
+        },
+        {
+          definition: { name: 'analyze_clue', description: 'Run forensic analysis on a piece of evidence', parameters: [
+            { name: 'evidence', type: 'string', description: 'What to analyze', required: true },
+          ]},
+          executor: (args) => {
+            caseProgress.value = Math.min(100, caseProgress.value + 4);
+            const results = ['DNA match found!', 'Partial prints — running through database.', 'Toxicology report pending.', 'Fibers match suspect wardrobe.', 'Inconclusive results.'];
+            return { success: true, result: `Analyzed ${args.evidence}: ${pick(results)}` };
+          },
+        },
+        {
+          definition: { name: 'file_report', description: 'File a case report or update with headquarters', parameters: [
+            { name: 'subject', type: 'string', description: 'What the report covers', required: true },
+          ]},
+          executor: (args) => ({
+            success: true, result: `Filed report on ${args.subject}. ${pick(['Captain acknowledged.', 'Flagged for review.', 'Added to case file.', 'Forwarded to DA office.'])}`,
+          }),
+        },
+        {
+          definition: { name: 'arrest_suspect', description: 'Attempt to arrest a suspect', parameters: [
+            { name: 'suspect', type: 'string', description: 'Who to arrest', required: true },
+            { name: 'warrant', type: 'string', description: 'Type of authority', enum: ['with_warrant', 'probable_cause', 'in_pursuit'], required: true },
+          ]},
+          executor: (args) => {
+            suspicionLevel.value = Math.max(0, suspicionLevel.value - 20);
+            return {
+              success: true, result: `Attempted arrest of ${args.suspect} (${args.warrant}): ${pick(['Suspect in custody!', 'Suspect fled the scene!', 'Resisted arrest — backup called.', 'Surrendered peacefully.'])}`,
+              sideEffects: [{ type: 'arrest', source: 'agent', data: { suspect: args.suspect, warrant: args.warrant }, importance: 9, timestamp: Date.now() }],
+            };
+          },
+        },
+      ];
+    },
+    getGameState: () => ({
+      worldTime: Date.now(), location: 'Metro City',
+      nearbyEntities: chars.map(c => c.name),
+      recentEvents: [`Case progress: ${caseProgress.value}%`, `Public suspicion level: ${suspicionLevel.value}%`],
+      custom: { caseProgress: caseProgress.value, suspicionLevel: suspicionLevel.value, timePhase: pick(['dawn', 'morning', 'afternoon', 'evening', 'night']) },
+    }),
+    getProprioception: (id) => ({
+      currentAction: pick(['investigating', 'on patrol', 'at desk']), location: charLocations.get(id) ?? 'precinct_hq',
+      inventory: [pick(['badge', 'handcuffs', 'notepad', 'flashlight', 'radio', 'evidence_bag'])],
+      status: [pick(['alert', 'tired', 'focused'])], energy: 0.5 + Math.random() * 0.5,
+    }),
+    getWorldRules: () => 'Modern detective agency in a city. You are an investigator. Use tools to interrogate, search for evidence, stake out, analyze clues, file reports, and arrest suspects. Be concise.',
+    getEventTypes: () => ['crime_report', 'witness_testimony', 'evidence_found', 'suspect_sighting', 'internal_affairs'],
+    filterEvent: () => true,
+  };
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 5: SURVIVAL COLONY
+// ═══════════════════════════════════════════════════════════
+
+function createSurvivalPlugin(charCount: number): GamePlugin {
+  const LOCATIONS = ['main_shelter', 'watchtower', 'supply_depot', 'med_tent', 'outer_wall', 'scrapyard', 'radio_shack', 'garden_plot'];
+  const ARCHETYPES: Array<{ id: string; name: string; traits: string[]; goals: string[] }> = [
+    { id: 'leader',         name: 'Leader',         traits: ['decisive', 'inspiring'],    goals: ['Keep the colony alive', 'Find a permanent safe zone'] },
+    { id: 'medic',          name: 'Medic',          traits: ['compassionate', 'steady'],  goals: ['Treat the wounded', 'Stockpile medical supplies'] },
+    { id: 'scout',          name: 'Scout',          traits: ['agile', 'cautious'],        goals: ['Map the surrounding area', 'Spot threats early'] },
+    { id: 'engineer',       name: 'Engineer',       traits: ['resourceful', 'pragmatic'], goals: ['Reinforce defenses', 'Restore power to the colony'] },
+    { id: 'scavenger',      name: 'Scavenger',      traits: ['bold', 'lucky'],            goals: ['Find food and supplies', 'Discover a cache of weapons'] },
+    { id: 'guard',          name: 'Guard',          traits: ['vigilant', 'stoic'],        goals: ['Defend the perimeter', 'Train others to fight'] },
+    { id: 'cook',           name: 'Cook',           traits: ['creative', 'frugal'],       goals: ['Stretch rations further', 'Boost morale with a good meal'] },
+    { id: 'radio_operator', name: 'Radio Operator', traits: ['patient', 'hopeful'],       goals: ['Contact other survivors', 'Intercept enemy transmissions'] },
+  ];
+  const NAMES = [
+    'Dawson', 'Reyes', 'Murphy', 'Tran', 'Kowalski', 'Okafor', 'Jensen', 'Silva',
+    'Brooks', 'Hassan', 'Nguyen', 'Price', 'Volkov', 'Duarte', 'Erikson', 'Cho',
+    'Fletcher', 'Ramirez', 'Stone', 'Patel', 'Ivanov', 'Cruz', 'Wagner', 'Yusuf',
+    'Collins', 'Tanaka', 'Marsh', 'Abbas', 'Larsen', 'Ortega', 'Hunt', 'Kato',
+  ];
+
+  const charLocations = new Map<string, string>();
+  const supplies = { food: 60, water: 55, medical: 40, ammo: 30 };
+  const wallIntegrity = { value: 70 };
+  const threatLevel = { value: 45 };
+
+  const chars: CharacterDefinition[] = [];
+  for (let i = 0; i < charCount; i++) {
+    const arch = ARCHETYPES[i % ARCHETYPES.length];
+    const loc = LOCATIONS[i % LOCATIONS.length];
+    charLocations.set(`survivor-${i}`, loc);
+    chars.push({
+      id: `survivor-${i}`,
+      name: NAMES[i % NAMES.length],
+      archetype: arch.id,
+      identity: {
+        personality: `A ${arch.traits.join(' and ')} ${arch.name.toLowerCase()}. Hardened by months of survival.`,
+        backstory: `Before the collapse, was a ${pick(['teacher', 'mechanic', 'nurse', 'soldier', 'office worker', 'farmer'])}. Found the colony ${pick(['by luck', 'following a radio signal', 'after weeks alone', 'with a small group'])}.`,
+        goals: arch.goals,
+        traits: arch.traits,
+        speechStyle: `Speaks in terse, practical sentences. Wastes no words.`,
+      },
+      initialCloseness: 40 + (i % 5) * 10,
+    });
+  }
+
+  return {
+    id: 'survival-colony',
+    name: 'Colony Outpost',
+    getArchetypes: () => ARCHETYPES.map(a => ({
+      id: a.id, name: a.name, description: `Colony ${a.name.toLowerCase()}`,
+      defaultIdentity: { personality: a.traits.join(', '), backstory: `A ${a.name.toLowerCase()}.`, goals: a.goals, traits: a.traits },
+    })),
+    getInitialCharacters: () => chars,
+    getTools(): Array<{ definition: ToolDefinition; executor: ToolExecutorFn }> {
+      return [
+        {
+          definition: { name: 'scavenge', description: 'Search an area for food, water, or useful supplies', parameters: [
+            { name: 'area', type: 'string', description: 'Where to scavenge', enum: ['abandoned_store', 'wrecked_vehicles', 'collapsed_building', 'underground_bunker', 'overgrown_suburb', 'industrial_zone'], required: true },
+          ]},
+          executor: (args) => {
+            const loot = pick(['canned food', 'bottled water', 'bandages', 'ammo box', 'nothing useful', 'fuel canister', 'a rusty knife']);
+            if (loot === 'canned food') supplies.food = Math.min(100, supplies.food + 5);
+            if (loot === 'bottled water') supplies.water = Math.min(100, supplies.water + 5);
+            if (loot === 'bandages') supplies.medical = Math.min(100, supplies.medical + 3);
+            if (loot === 'ammo box') supplies.ammo = Math.min(100, supplies.ammo + 5);
+            return { success: true, result: `Scavenged ${args.area}: found ${loot}` };
+          },
+        },
+        {
+          definition: { name: 'fortify', description: 'Reinforce a section of the colony defenses', parameters: [
+            { name: 'section', type: 'string', description: 'What to fortify', enum: ['north_wall', 'south_gate', 'watchtower', 'main_entrance', 'perimeter_fence'], required: true },
+          ]},
+          executor: (args) => {
+            wallIntegrity.value = Math.min(100, wallIntegrity.value + 5);
+            return { success: true, result: `Fortified ${args.section}. ${pick(['Holding strong.', 'Patched with scrap metal.', 'Added barbed wire.', 'Reinforced with concrete.'])}` };
+          },
+        },
+        {
+          definition: { name: 'scout_perimeter', description: 'Scout the surrounding area for threats or resources', parameters: [
+            { name: 'direction', type: 'string', description: 'Which direction to scout', enum: ['north', 'south', 'east', 'west'], required: true },
+          ]},
+          executor: (args) => {
+            const findings = ['hostile group spotted 2 miles out', 'all clear', 'abandoned vehicle with supplies', 'animal tracks — possible food', 'smoke on the horizon', 'another survivor group'];
+            return { success: true, result: `Scouted ${args.direction}: ${pick(findings)}` };
+          },
+        },
+        {
+          definition: { name: 'treat_wound', description: 'Provide medical treatment to an injured survivor', parameters: [
+            { name: 'patient', type: 'string', description: 'Who to treat', required: true },
+            { name: 'treatment', type: 'string', description: 'Type of treatment', enum: ['bandage', 'splint', 'antibiotics', 'surgery'], required: true },
+          ]},
+          executor: (args) => {
+            supplies.medical = Math.max(0, supplies.medical - 3);
+            return {
+              success: true, result: `Treated ${args.patient} with ${args.treatment}. ${pick(['Stable now.', 'Needs rest.', 'Critical but alive.', 'Full recovery expected.'])}`,
+            };
+          },
+        },
+        {
+          definition: { name: 'ration_supplies', description: 'Manage colony supply distribution', parameters: [
+            { name: 'resource', type: 'string', description: 'Which resource', enum: ['food', 'water', 'medical', 'ammo'], required: true },
+            { name: 'action', type: 'string', description: 'How to manage', enum: ['distribute', 'stockpile', 'trade', 'ration'], required: true },
+          ]},
+          executor: (args) => ({
+            success: true, result: `${args.action}d ${args.resource} supplies. ${pick(['People are grateful.', 'Some complaints.', 'Reserves adjusted.', 'Morale boosted slightly.'])}`,
+          }),
+        },
+        {
+          definition: { name: 'signal_for_help', description: 'Broadcast a radio signal to find other survivors', parameters: [
+            { name: 'frequency', type: 'string', description: 'Which frequency band', enum: ['emergency', 'military', 'civilian', 'shortwave'], required: true },
+          ]},
+          executor: (args) => ({
+            success: true, result: `Broadcast on ${args.frequency} frequency: ${pick(['Static only.', 'Faint voice — coordinates received!', 'Hostile response — they know our location.', 'Friendly group replied!', 'No response.'])}`,
+            sideEffects: [{ type: 'transmission', source: 'agent', data: { frequency: args.frequency }, importance: 6, timestamp: Date.now() }],
+          }),
+        },
+      ];
+    },
+    getGameState: () => ({
+      worldTime: Date.now(), location: 'Colony Outpost — Sector 7',
+      nearbyEntities: chars.map(c => c.name),
+      recentEvents: [
+        `Supplies — Food: ${supplies.food}%, Water: ${supplies.water}%, Medical: ${supplies.medical}%, Ammo: ${supplies.ammo}%`,
+        `Wall integrity: ${wallIntegrity.value}%  |  Threat level: ${threatLevel.value}%`,
+      ],
+      custom: { supplies, wallIntegrity: wallIntegrity.value, threatLevel: threatLevel.value, timePhase: pick(['dawn', 'midday', 'dusk', 'night']) },
+    }),
+    getProprioception: (id) => ({
+      currentAction: pick(['on watch', 'resting', 'working']), location: charLocations.get(id) ?? 'main_shelter',
+      inventory: [pick(['makeshift_weapon', 'canteen', 'bandage', 'binoculars', 'walkie_talkie', 'ration_pack'])],
+      status: [pick(['hungry', 'alert', 'exhausted', 'healthy'])], energy: 0.4 + Math.random() * 0.5,
+    }),
+    getWorldRules: () => 'Post-apocalyptic survival colony. You are a survivor. Use tools to scavenge, fortify, scout, treat wounds, ration supplies, and signal for help. Resources are scarce. Be concise.',
+    getEventTypes: () => ['threat_detected', 'supply_shortage', 'injury', 'transmission_received', 'weather_hazard'],
+    filterEvent: () => true,
+  };
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 6: WIZARD ACADEMY
+// ═══════════════════════════════════════════════════════════
+
+function createAcademyPlugin(charCount: number): GamePlugin {
+  const LOCATIONS = ['great_hall', 'potions_classroom', 'library_tower', 'dueling_arena', 'herbology_garden', 'dormitory', 'headmasters_office', 'enchanted_courtyard'];
+  const ARCHETYPES: Array<{ id: string; name: string; traits: string[]; goals: string[] }> = [
+    { id: 'prodigy',           name: 'Prodigy',           traits: ['gifted', 'ambitious'],     goals: ['Master advanced magic', 'Win the annual tournament'] },
+    { id: 'herbalist_student', name: 'Herbalist Student', traits: ['gentle', 'patient'],       goals: ['Grow a perfect moonbloom', 'Pass the herbology exam'] },
+    { id: 'professor',         name: 'Professor',         traits: ['wise', 'stern'],           goals: ['Teach the next generation', 'Research forbidden spells'] },
+    { id: 'troublemaker',      name: 'Troublemaker',      traits: ['mischievous', 'clever'],   goals: ['Pull off the ultimate prank', 'Discover secret passages'] },
+    { id: 'librarian',         name: 'Librarian',         traits: ['bookish', 'protective'],   goals: ['Catalog every tome', 'Guard the restricted section'] },
+    { id: 'duelist',           name: 'Duelist',           traits: ['competitive', 'quick'],    goals: ['Become the top-ranked dueler', 'Learn a rare combat spell'] },
+    { id: 'prefect',           name: 'Prefect',           traits: ['responsible', 'fair'],     goals: ['Maintain order', 'Set a good example for younger students'] },
+    { id: 'exchange_student',  name: 'Exchange Student',  traits: ['curious', 'adaptable'],    goals: ['Learn this school\'s traditions', 'Share foreign magic'] },
+  ];
+  const NAMES = [
+    'Elara', 'Theron', 'Ivy', 'Cedric', 'Luna', 'Rowan', 'Seraphina', 'Felix',
+    'Briar', 'Magnus', 'Wren', 'Alaric', 'Dahlia', 'Orion', 'Sage', 'Cassius',
+    'Neve', 'Leander', 'Clover', 'Jasper', 'Lyra', 'Emeric', 'Hazel', 'Dorian',
+    'Freya', 'Stellan', 'Maeve', 'Florian', 'Aurora', 'Sirius', 'Isolde', 'Bastian',
+  ];
+
+  const charLocations = new Map<string, string>();
+  const academyMorale = { value: 75 };
+  const currentClass = { value: 'potions' };
+
+  const chars: CharacterDefinition[] = [];
+  for (let i = 0; i < charCount; i++) {
+    const arch = ARCHETYPES[i % ARCHETYPES.length];
+    const loc = LOCATIONS[i % LOCATIONS.length];
+    charLocations.set(`wizard-${i}`, loc);
+    chars.push({
+      id: `wizard-${i}`,
+      name: NAMES[i % NAMES.length],
+      archetype: arch.id,
+      identity: {
+        personality: `A ${arch.traits.join(' and ')} ${arch.name.toLowerCase()}. Lives and breathes magic.`,
+        backstory: `${pick(['Discovered magical talent at age 7', 'Comes from a long line of wizards', 'Was a late bloomer with sudden power', 'Arrived from a distant magical academy'])}. Specializes in ${pick(['elemental magic', 'illusions', 'enchantments', 'divination', 'transmutation'])}.`,
+        goals: arch.goals,
+        traits: arch.traits,
+        speechStyle: `Speaks with wonder about magic. Uses arcane terminology casually.`,
+      },
+      initialCloseness: 45 + (i % 5) * 10,
+    });
+  }
+
+  return {
+    id: 'wizard-academy',
+    name: 'Arcanum Academy',
+    getArchetypes: () => ARCHETYPES.map(a => ({
+      id: a.id, name: a.name, description: `Academy ${a.name.toLowerCase()}`,
+      defaultIdentity: { personality: a.traits.join(', '), backstory: `A ${a.name.toLowerCase()}.`, goals: a.goals, traits: a.traits },
+    })),
+    getInitialCharacters: () => chars,
+    getTools(): Array<{ definition: ToolDefinition; executor: ToolExecutorFn }> {
+      return [
+        {
+          definition: { name: 'study_spell', description: 'Practice or learn a magical spell', parameters: [
+            { name: 'spell', type: 'string', description: 'Which spell to study', required: true },
+            { name: 'intensity', type: 'string', description: 'Study intensity', enum: ['casual', 'focused', 'intensive'], required: true },
+          ]},
+          executor: (args) => ({
+            success: true, result: `Studied ${args.spell} (${args.intensity}): ${pick(['Made progress!', 'Accidental explosion — singed eyebrows.', 'Almost got it right.', 'Breakthrough moment!', 'Fizzled out completely.'])}`,
+          }),
+        },
+        {
+          definition: { name: 'brew_potion', description: 'Brew a magical potion in the lab', parameters: [
+            { name: 'potion', type: 'string', description: 'Which potion to brew', required: true },
+            { name: 'ingredient', type: 'string', description: 'Key ingredient used', required: true },
+          ]},
+          executor: (args) => ({
+            success: true, result: `Brewed ${args.potion} with ${args.ingredient}: ${pick(['Perfect brew!', 'Turned an odd color.', 'Cauldron overflowed!', 'Smells right.', 'Volatile — handle with care.'])}`,
+          }),
+        },
+        {
+          definition: { name: 'attend_class', description: 'Attend a scheduled academy class', parameters: [
+            { name: 'subject', type: 'string', description: 'Which class', enum: ['potions', 'charms', 'defense', 'herbology', 'divination', 'history_of_magic'], required: true },
+          ]},
+          executor: (args) => {
+            currentClass.value = args.subject as string;
+            return { success: true, result: `Attended ${args.subject} class: ${pick(['Learned something new.', 'Got called on and answered well.', 'Nearly fell asleep.', 'Teacher gave bonus points!', 'Pop quiz — barely passed.'])}` };
+          },
+        },
+        {
+          definition: { name: 'duel_practice', description: 'Practice magical combat in the arena', parameters: [
+            { name: 'opponent', type: 'string', description: 'Who to duel', required: true },
+            { name: 'strategy', type: 'string', description: 'Dueling approach', enum: ['aggressive', 'defensive', 'trick_spell', 'counter_attack'], required: true },
+          ]},
+          executor: (args) => ({
+            success: true, result: `Dueled ${args.opponent} (${args.strategy}): ${pick(['Won decisively!', 'Lost after a close fight.', 'Draw — both exhausted.', 'Opponent yielded.', 'Spell backfired!'])}`,
+            sideEffects: [{ type: 'duel', source: 'agent', target: args.opponent as string, data: { strategy: args.strategy }, importance: 5, timestamp: Date.now() }],
+          }),
+        },
+        {
+          definition: { name: 'explore_library', description: 'Search the library for rare knowledge or hidden texts', parameters: [
+            { name: 'section', type: 'string', description: 'Which section to explore', required: true },
+          ]},
+          executor: (args) => {
+            const finds = ['an ancient scroll', 'a book that whispers', 'nothing unusual', 'a hidden compartment', 'a map of secret tunnels', 'a forbidden grimoire'];
+            return { success: true, result: `Explored library ${args.section}: found ${pick(finds)}` };
+          },
+        },
+        {
+          definition: { name: 'gossip', description: 'Share or gather rumors around the academy', parameters: [
+            { name: 'topic', type: 'string', description: 'What to gossip about', required: true },
+          ]},
+          executor: (args) => {
+            academyMorale.value = Math.min(100, academyMorale.value + 1);
+            return {
+              success: true, result: `Gossiped about ${args.topic}: ${pick(['Juicy rumor confirmed!', 'Nobody knows anything.', 'Started a wild new rumor.', 'Heard something interesting.', 'Got conflicting stories.'])}`,
+              sideEffects: [{ type: 'social', source: 'agent', data: { topic: args.topic }, timestamp: Date.now() }],
+            };
+          },
+        },
+      ];
+    },
+    getGameState: () => ({
+      worldTime: Date.now(), location: 'Arcanum Academy',
+      nearbyEntities: chars.map(c => c.name),
+      recentEvents: [`Academy morale: ${academyMorale.value}%`, `Current class: ${currentClass.value}`],
+      custom: { academyMorale: academyMorale.value, currentClass: currentClass.value, timePhase: pick(['breakfast', 'morning_classes', 'lunch', 'afternoon_classes', 'free_period', 'curfew']) },
+    }),
+    getProprioception: (id) => ({
+      currentAction: pick(['studying', 'wandering', 'in class']), location: charLocations.get(id) ?? 'great_hall',
+      inventory: [pick(['wand', 'spellbook', 'potion_vial', 'quill', 'crystal', 'familiar_treat'])],
+      status: [pick(['energized', 'tired', 'inspired'])], energy: 0.5 + Math.random() * 0.5,
+    }),
+    getWorldRules: () => 'Magical academy for young wizards. You are a member of the academy. Use tools to study spells, brew potions, attend class, duel, explore the library, and gossip. Be concise.',
+    getEventTypes: () => ['class_announcement', 'potion_accident', 'forbidden_magic', 'duel_challenge', 'social_event'],
+    filterEvent: () => true,
+  };
+}
+
+// ═══════════════════════════════════════════════════════════
 // SIMULATION RUNNER
 // ═══════════════════════════════════════════════════════════
 
@@ -506,6 +923,42 @@ const GAMES: GameDef[] = [
       { type: 'visitor', source: 'road', data: { description: 'A traveling merchant arrives with exotic goods!' }, importance: 5, timestamp: 0 },
       { type: 'harvest', source: 'fields', data: { description: 'The wheat is golden and ready for harvest!' }, importance: 6, timestamp: 0 },
       { type: 'dialogue', source: 'elder', data: { description: 'The elder calls a meeting about the well running dry.' }, importance: 7, timestamp: 0 },
+    ],
+  },
+  {
+    name: 'Detective Agency',
+    emoji: '🔍',
+    createPlugin: createDetectivePlugin,
+    events: [
+      { type: 'crime_report', source: 'dispatch', data: { description: 'New homicide reported downtown. All units respond.' }, importance: 9, timestamp: 0 },
+      { type: 'witness_testimony', source: 'witness', data: { description: 'A witness just came forward with new information about the suspect.' }, importance: 7, timestamp: 0 },
+      { type: 'evidence_found', source: 'forensics', data: { description: 'Lab results are back — DNA match on the murder weapon.' }, importance: 8, timestamp: 0 },
+      { type: 'suspect_sighting', source: 'patrol', data: { description: 'Suspect spotted near the train station. Looks like they are fleeing.' }, importance: 8, timestamp: 0 },
+      { type: 'internal_affairs', source: 'IA_division', data: { description: 'Internal affairs is reviewing the case. Watch your procedures.' }, importance: 6, timestamp: 0 },
+    ],
+  },
+  {
+    name: 'Survival Colony',
+    emoji: '☢️',
+    createPlugin: createSurvivalPlugin,
+    events: [
+      { type: 'threat_detected', source: 'watchtower', data: { description: 'Hostile group approaching from the north! Armed and dangerous.' }, importance: 9, timestamp: 0 },
+      { type: 'supply_shortage', source: 'quartermaster', data: { description: 'Water reserves critically low. Two days left at current consumption.' }, importance: 8, timestamp: 0 },
+      { type: 'injury', source: 'outer_wall', data: { description: 'Guard injured during a scuffle at the perimeter. Needs medical attention.' }, importance: 7, timestamp: 0 },
+      { type: 'transmission_received', source: 'radio_shack', data: { description: 'Faint radio signal received: another colony 50 miles east requesting aid.' }, importance: 6, timestamp: 0 },
+      { type: 'weather_hazard', source: 'nature', data: { description: 'Toxic dust storm rolling in. Seal all shelters immediately.' }, importance: 8, timestamp: 0 },
+    ],
+  },
+  {
+    name: 'Wizard Academy',
+    emoji: '🧙',
+    createPlugin: createAcademyPlugin,
+    events: [
+      { type: 'class_announcement', source: 'headmaster', data: { description: 'Surprise exam in Defense Against Dark Arts tomorrow!' }, importance: 6, timestamp: 0 },
+      { type: 'potion_accident', source: 'potions_classroom', data: { description: 'A cauldron exploded in the potions lab! Purple smoke everywhere!' }, importance: 7, timestamp: 0 },
+      { type: 'forbidden_magic', source: 'library_tower', data: { description: 'Someone used forbidden magic in the restricted section. The wards are triggered.' }, importance: 8, timestamp: 0 },
+      { type: 'duel_challenge', source: 'dueling_arena', data: { description: 'A senior student has challenged all comers to a duel for house honor!' }, importance: 6, timestamp: 0 },
+      { type: 'social_event', source: 'great_hall', data: { description: 'The annual Moonlight Ball is tonight! Everyone is invited.' }, importance: 5, timestamp: 0 },
     ],
   },
 ];
@@ -678,7 +1131,7 @@ async function main() {
     : GAMES.filter(g => g.name.toLowerCase().includes(GAME_FILTER.toLowerCase()));
 
   if (gamesToRun.length === 0) {
-    console.log(`  No games matching "${GAME_FILTER}". Available: pirate, space, farm, all`);
+    console.log(`  No games matching "${GAME_FILTER}". Available: pirate, space, farm, detective, survival, academy, all`);
     process.exit(1);
   }
 

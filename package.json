@@ -49,7 +49,10 @@
     "demo:diagnose": "tsx examples/game-simulations/diagnose.ts",
     "demo:rich": "tsx examples/game-simulations/rich-context.ts",
     "demo:api": "tsx examples/api-server/index.ts",
-    "demo:starter": "tsx examples/my-first-plugin/index.ts"
+    "demo:starter": "tsx examples/my-first-plugin/index.ts",
+    "demo:detective": "tsx examples/game-simulations/index.ts --game=detective",
+    "demo:survival": "tsx examples/game-simulations/index.ts --game=survival",
+    "demo:academy": "tsx examples/game-simulations/index.ts --game=academy"
   },
   "dependencies": {
     "better-sqlite3": "^11.7.0",
