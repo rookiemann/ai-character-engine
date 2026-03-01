@@ -439,7 +439,7 @@ The full configuration is in `engine.config.example.json`. Key sections:
 |---------|---------|-------------|
 | **My First Plugin** | `npm run demo:starter` | 2 characters in a village — heavily commented learning template |
 | **Tavern Tales** | `npm run demo:sample` | 4 characters in a medieval tavern, demonstrates chat, events, and tool use |
-| **Game Simulations** | `npm run demo:sim` | 3 game genres (pirate, space, farm) with 32 characters each against vLLM |
+| **Game Simulations** | `npm run demo:sim` | 6 game genres (pirate, space, farm, detective, survival, academy) with 32 characters each against vLLM |
 | **Diagnostics** | `npm run demo:diagnose` | Raw LLM output analysis — categorizes tool call failures |
 | **Rich Context** | `npm run demo:rich` | Compares bare vs rich game state impact on decision quality |
 | **API Server** | `npm run demo:api` | HTTP API server on port 3000, integrate from any language |
@@ -518,6 +518,7 @@ The `better-sqlite3` package requires native compilation. If `npm install` fails
 
 ### Windows-specific issues
 
+- **vLLM on Windows**: No official pip wheel — use the [pre-built Windows environment](https://github.com/rookiemann/vllm-windows-build) or see [docs/vllm-windows.md](docs/vllm-windows.md)
 - **vLLM requires `--enforce-eager`** — CUDA graphs (Triton) don't work on Windows
 - **GPU memory**: max `gpu-memory-utilization` is ~0.92 (display driver reserves ~80MB)
 - **Don't use `CUDA_DEVICE_ORDER=PCI_BUS_ID`** — it can flip GPU indices on some systems

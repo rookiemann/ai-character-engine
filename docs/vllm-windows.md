@@ -14,6 +14,14 @@ vLLM is the **recommended production provider** for the AI Character Engine due 
 
 ---
 
+## Pre-Built Windows Environment
+
+Building vLLM from source on Windows is non-trivial. A ready-to-use build with the enhanced launcher, patches, and setup instructions is available at:
+
+**https://github.com/rookiemann/vllm-windows-build**
+
+If you prefer to build from source, see the prerequisites and instructions below.
+
 ## Prerequisites
 
 - **Operating System:** Windows 10 or Windows 11
