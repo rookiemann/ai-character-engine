@@ -17,14 +17,14 @@ By the end of this guide, your game will have:
 
 **Windows:**
 ```
-git clone https://github.com/rookiemann/ai-character-engine.git
+git clone https://github.com/aivrar/ai-character-engine.git
 cd ai-character-engine
 setup.bat
 ```
 
 **Linux / Mac:**
 ```
-git clone https://github.com/rookiemann/ai-character-engine.git
+git clone https://github.com/aivrar/ai-character-engine.git
 cd ai-character-engine
 chmod +x setup.sh && ./setup.sh
 ```
@@ -34,7 +34,7 @@ The setup script installs dependencies, builds the project, detects your LLM pro
 ### Manual Install
 
 ```bash
-git clone https://github.com/rookiemann/ai-character-engine.git
+git clone https://github.com/aivrar/ai-character-engine.git
 cd ai-character-engine
 npm install
 npm run build

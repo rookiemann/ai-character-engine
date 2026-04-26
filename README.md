@@ -11,14 +11,14 @@
 
 ### Windows
 ```
-git clone https://github.com/rookiemann/ai-character-engine.git
+git clone https://github.com/aivrar/ai-character-engine.git
 cd ai-character-engine
 setup.bat
 ```
 
 ### Linux / Mac
 ```
-git clone https://github.com/rookiemann/ai-character-engine.git
+git clone https://github.com/aivrar/ai-character-engine.git
 cd ai-character-engine
 chmod +x setup.sh && ./setup.sh
 ```
@@ -97,7 +97,7 @@ chmod +x setup.sh && ./setup.sh
 Use the setup script (recommended) or install manually:
 
 ```bash
-git clone https://github.com/rookiemann/ai-character-engine.git
+git clone https://github.com/aivrar/ai-character-engine.git
 cd ai-character-engine
 npm install
 npm run build
@@ -518,7 +518,7 @@ The `better-sqlite3` package requires native compilation. If `npm install` fails
 
 ### Windows-specific issues
 
-- **vLLM on Windows**: No official pip wheel — use the [pre-built Windows environment](https://github.com/rookiemann/vllm-windows-build) or see [docs/vllm-windows.md](docs/vllm-windows.md)
+- **vLLM on Windows**: No official pip wheel — use the [pre-built Windows environment](https://github.com/aivrar/vllm-windows-build) or see [docs/vllm-windows.md](docs/vllm-windows.md)
 - **vLLM requires `--enforce-eager`** — CUDA graphs (Triton) don't work on Windows
 - **GPU memory**: max `gpu-memory-utilization` is ~0.92 (display driver reserves ~80MB)
 - **Don't use `CUDA_DEVICE_ORDER=PCI_BUS_ID`** — it can flip GPU indices on some systems
